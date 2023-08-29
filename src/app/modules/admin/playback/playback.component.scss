@@ -1,0 +1,35 @@
+video {
+    object-fit: fill;
+}
+.mat-accordion .mat-expansion-panel .mat-expansion-panel-header {
+   padding-right:80px;
+}
+
+ .a::-webkit-calendar-picker-indicator {
+        width: 30px;
+        height: 17px;
+    }
+    input {
+        color-scheme: dark;
+        padding-right: 50px
+    }
+    
+    .mat-icon-button {
+       padding-top:10px !important;
+    }
+    
+    
+    .vjs-big-play-button{
+        display:none !important;
+    }
+   
+    .text-overlay {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       padding-top:120px; /* Adjust padding as needed for spacing */
+       padding-left: 80px;
+       font-weight: 100px;
+       pointer-events: none; 
+    }

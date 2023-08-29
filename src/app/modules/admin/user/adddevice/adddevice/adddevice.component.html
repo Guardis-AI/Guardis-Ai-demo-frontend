@@ -1,0 +1,83 @@
+<div class="border-t border-r border-l  border-b border-01 bg-gray-50">
+    <form [formGroup]="addDeviceForm" #addDeviceFormNgForm="ngForm">
+        <div class="relative w-full h-15 bg-accent-100 dark:bg-accent-700 flex">
+            <div class="mt-3 text-2xl font-extrabold tracking-tight leading-tight pl-5 ">Add Device</div>
+            <div class="pt-2 pl-90">
+                <a mat-icon-button [matTooltip]="'Close'" (click)="dialogRef.close(false)">
+                    <mat-icon class="text-black" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+                </a>
+            </div>
+        </div> 
+        
+        <div class="mt-10" style="padding-left:15px;padding-right:15px;">
+            <div class="text-2xl font-bold ">{{message}}</div>
+              <mat-form-field class="w-1/2 mt-0.5">
+                <mat-label>User</mat-label>
+                <mat-select  [placeholder]="'Select User'" [formControlName]="'user_id'" >
+                    <input class="form-control" Input  type="text"  name="search"
+                  id="UserName"  matInput  [(ngModel)]="searchText"
+                  autocomplete="off" placeholder="UserName"   [formControl]="UserName" >
+                     <mat-option *ngFor="let dt of udata | filter: searchText"  [value]="dt.user_id">
+                      {{dt.user_name}} 
+                    </mat-option>
+                  </mat-select>
+                <mat-error> UserName is required</mat-error>
+            </mat-form-field>
+          
+            <mat-form-field class="w-1/2 mt-0.5 pl-2">
+                <mat-label>IPaddress</mat-label>
+                <input id="ipaddress" matInput type="text" [formControlName]="'p_IP_Address'" pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$">
+                <mat-error> Enter valid IP address </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-full mt-0.5 fuse-mat-no-subscript">
+                <mat-label>URL</mat-label>
+                <input id="p_url" matInput type="text" [formControlName]="'p_url'">
+                <mat-error> URL is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="flex-auto gt-xs:pl-3 w-1/2 mt-0.5">
+                <mat-label>CameraType</mat-label>
+                <input type="text" [placeholder]="'Camera Type'" matInput [matAutocomplete]="auto" [(ngModel)]="groupCode"  [formControl]="camtypeControl" [formControlName]="'p_Camera_Type'" >
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectedGroup($event.option.value)">
+                    <mat-option *ngFor="let option of filteredOptions | async"
+                        [value]="option">{{ option }}</mat-option>
+                </mat-autocomplete>
+                <mat-error>Camera Type is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-1/2 mt-0.5 pl-2">
+                <mat-label>Port</mat-label>
+                <input id="port" matInput type="text" [formControlName]="'p_port'">
+                <mat-error> Port is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-1/2 mt-0.5">
+                <mat-label>Start Date</mat-label>
+                <mat-icon matPrefix class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_outline:calendar'"></mat-icon>
+                <input matInput [matDatepicker]="startDatepicker" [formControlName]="'start_date'"
+                    [placeholder]="'Start Date'" >
+                <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatepicker></mat-datepicker>
+                <mat-error> StartDate is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-1/2 mt-0.5 pl-2">
+                <mat-label>End Date</mat-label>
+                <mat-icon matPrefix class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_outline:calendar'"></mat-icon>
+                <input matInput [formControlName]="'end_date'" [matDatepicker]="endDatepicker"
+                    [placeholder]="'End Date'">
+                <mat-datepicker-toggle matSuffix [for]="endDatepicker"> </mat-datepicker-toggle>
+                <mat-datepicker #endDatepicker></mat-datepicker>
+            </mat-form-field>
+          
+                <mat-label>Enable Notification  </mat-label>
+                    <mat-checkbox [formControlName]="'p_send_notification'"  [checked]="addDeviceForm.get('p_send_notification').value=='Y'? true:false"
+                    (change)="addDeviceForm.get('p_send_notification').setValue($event.checked? 'Y':'N')"> 
+               </mat-checkbox>
+            <div class="flex items-center -mx-6 sm:-mx-12 py-4 pr-4 pl-1 sm:pr-12 sm:pl-7 border-t bg-gray-50 dark:bg-transparent">
+                <button class="ml-2" mat-flat-button [color]="'primary'" [disabled]="addDeviceForm.invalid"
+                    [matTooltip]="'Save'" (click)="AddDevice()"> Save
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

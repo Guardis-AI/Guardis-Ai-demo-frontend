@@ -1,0 +1,161 @@
+<div class="sm:inset-0 flex flex-col flex-auto  sm:overflow-hidden bg-card dark:bg-transparent">
+<!-- Header -->
+<div class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-3 px-4 md:px-8 ">
+    <div>
+        <div class="text-3xl font-medium tracking-tight leading-none">Users</div>
+        <div class="ml-0.5 font-medium text-secondary">
+            <ng-container *ngIf="userCount > 0">
+                {{userCount}}
+            </ng-container>
+            {{userCount | i18nPlural: {
+            '=0'   : 'No User',
+            '=1'   : 'User',
+            'other': 'User'
+        } }}
+        </div>
+    </div>
+  <div class="flex shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+ <!-- Search -->
+ <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
+    <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:search'"></mat-icon>
+    <input matInput  placeholder="Search User.." (keyup)="applyFilter($event)" >
+  </mat-form-field>
+   <!-- Add employee button -->
+   <button class="ml-4" mat-flat-button  color="accent" (click)="showPrompt()">
+     <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon><span class="">Add</span> 
+   </button>
+    <!-- Export  button -->
+   <button class="ml-4" mat-flat-button  color="accent" (click)="AddDevice()">
+    <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon><span class="">Add Device</span> 
+  </button>
+</div>
+</div>
+<div class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between px-4 md:px-8">
+    <div class="flex-col flex-auto shadow-md border-gray-200 border border-solid">
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows  matSort>
+    <div class="bg-card"  title="Click for the device list">
+        <ng-container matColumnDef="user_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >User Id
+          </th>  
+            <td mat-cell *matCellDef="let ele" >
+                <span>{{ ele.user_id }}</span>
+            </td>
+        </ng-container>
+     <ng-container matColumnDef="user_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
+        <td mat-cell *matCellDef="let ele"> {{ele.user_name | titlecase}} </td>
+      </ng-container>
+      <ng-container matColumnDef="edgeunit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Edge Unit </th>
+        <td mat-cell *matCellDef="let ele"> {{ele.edgeunit}} </td>
+      </ng-container>
+    <ng-container matColumnDef="user_st_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date
+      </th>  
+        <td mat-cell *matCellDef="let ele" >
+            <span>{{ ele.user_st_date }}</span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="tot_devices">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Devices
+      </th>  
+        <td mat-cell *matCellDef="let ele" >
+            <span>{{ ele.tot_devices }}</span>
+        </td>
+    </ng-container>
+    
+    <!-- <ng-container matColumnDef="Add_User">
+        <th mat-header-cell *matHeaderCellDef class="pr-0 bg-slate-50 border-b border-1 border-[#0B3960]"><span>
+            <button mat-raised-button color="accent" (click)="showPrompt()">
+            <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>Add User
+          </button>
+        </span>
+       
+    </ng-container>
+    <ng-container matColumnDef="Add_Device">
+        <th mat-header-cell *matHeaderCellDef class="pr-0 bg-slate-50 border-b border-1 border-[#0B3960]"> <span> <button mat-raised-button color="accent" (click)="AddDevice()">
+            <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>Add Device
+          </button>
+        </span>
+       
+    </ng-container> -->
+    
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action </th>
+        <td mat-cell *matCellDef="let ele" class="p-2">
+                  <!-- <button class="text-white bg-[#06294b] text-white  py-1 px-1 rounded w-20 h-7"  (click)="Edit()">
+                    Edit
+                  </button> -->
+                  <mat-icon matPrefix class="hidden sm:flex icon-size-5"  [svgIcon]="'heroicons_outline:pencil'" (click)="EditUser(ele.user_id);"></mat-icon>
+                 
+                  
+    </ng-container>
+   </div>
+   
+    <!-- Expanded Column -->
+    <ng-container matColumnDef="expandedDetail" >
+        <td mat-cell *matCellDef="let element" [attr.colspan]="userColumns.length"  >
+            <div class="example-element-detail"   [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+                   <span class="expanded-contents" *ngIf = "element.user_devices.length > 0; else nodata">
+                        <tr class="border-t border-b border-r border-l  border-01 border-[#0B3960] grid grid-cols-12 gap-6">
+                            <th class="col-span-1">Device Id</th>
+                            <th class="col-span-5">URL</th>
+                            <th >Port</th>
+                            <th class="col-span-2">Camera Type</th>
+                            <th>Start Date</th>
+                            <th>IP Address</th>
+                            <th>Edit</th>
+                        </tr>
+                        <div *ngFor="let devices  of element.user_devices" class="border-b border-r border-l  border-01 border-[#0B3960]"> 
+                            <table mat-table >    
+                                
+                        <ng-container matColumnDef="device_id">
+                          <td mat-header-cell *matHeaderCellDef  class="col-span-1">{{devices.device_id}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="url">
+                            <td mat-header-cell *matHeaderCellDef  class="text-clip overflow-hidden ..."  style="overflow: auto;" class="col-span-5">{{devices.url}}</td>
+                         </ng-container>
+
+                        <ng-container matColumnDef="port">
+                            <td mat-header-cell *matHeaderCellDef >{{devices.port}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="camera_type">
+                            <td mat-header-cell *matHeaderCellDef class="col-span-2">{{devices.camera_type}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="dev_st_date">
+                            <td mat-header-cell *matHeaderCellDef >{{devices.dev_st_date}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="ip_address">
+                            <td mat-header-cell *matHeaderCellDef >{{devices.ip_address}}</td>
+                        </ng-container>
+                      
+                        <ng-container matColumnDef="edit">
+                            <td mat-header-cell *matHeaderCellDef >
+                                <mat-icon matPrefix class="hidden sm:flex icon-size-5"  [svgIcon]="'heroicons_outline:pencil'" (click)="EditDevice(devices.device_id);">
+                             </mat-icon></td>
+                        </ng-container>
+                       <tr mat-header-row *matHeaderRowDef="deviceColumns" class="grid grid-cols-12 gap-6"></tr>
+                        <tr mat-row *matRowDef="let row; columns: deviceColumns;"></tr>
+                      </table>
+                     
+                      </div>
+                      </span>
+                      <ng-template  #nodata  >
+                        <p class="font-bold">No Devices</p>
+                    </ng-template>
+            </div>
+            
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="userColumns"></tr>
+    <tr mat-row *matRowDef="let boss; columns: userColumns;"
+        class="example-element-row"
+        [class.example-expanded-row]="boss.isExpanded"
+        (click)="boss.isExpanded = !boss.isExpanded">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" style='display:contents'></tr>
+</table>
+<mat-paginator #paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+</div>
+</div>
+</div>

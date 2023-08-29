@@ -1,0 +1,55 @@
+<div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 mr-4">
+  <div class="md:flex md:justify-start w-full sm:w-5/6 md:h-100 md:w-5/6 pb-8 px-4 sm:p-10 md:px-16 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none sm:bg-card">
+      <div class="w-full max-w-full sm:w-full mx-auto sm:mx-0">
+        <div  class="mr-auto ml-auto sm:h-1/2 md:h-1/2" style=" background-image: url('assets/images/logo/bgvd.png');background-repeat: no-repeat;width:50%;background-size: contain;height:60px !important;align-items:center;">
+          <div class="flex text-white justify-center">
+          
+            <div class="p-6 ">    
+              <!-- <h1 class=" pt-2">Start</h1>     -->
+              <div class=" w-100 h-4 flex justify-center">
+                {{selectedDate | date :'fullDate'}}
+                </div> 
+              </div>
+          
+            </div>
+        </div>
+        <div class="flex-col sm:w-full md:w-full lg:w-full">
+        <div  style="box-shadow: 0px 16px 0px  #9CA3AF; border-radius:60px; ">
+          <div style="box-shadow: 0px 9px 0px #6B7280; border-radius:45px; "> 
+            <video id='sxmvideo'  class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full" style="height:65vh;border-radius:20px;"  autoplay>
+              <source  [src]="sanitize(vdata.videolink)" type="application/x-mpegURL" >
+              Browser not supported
+            </video>
+           </div>
+          </div>
+          
+      </div>
+      </div>
+  </div>
+  <div class="relative flex-auto  justify-center w-1/6 h-full  dark:border-l mt-6">
+    <input type="search" id="default-search" class="block w-full p-4 py-4 text-sm text-gray-900 text-center rounded bg-gray-200 text-white  h-3.5"  
+    type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search Cameras" required>
+    <div class="mt-12 h-3/4 overflow-scroll">
+    <div  *ngFor="let device of devicelist | filter: searchText; let index = index" >
+      <div class="grid-cols-1 w-full">
+        <video id="playbkvideo_{{device.device_id}}" class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full" style="border-radius:20px;"  muted  autoplay>
+          <source  [src]="''+cfurl+'media/'+device.camera_type+'/'+dateplay+'/output.m3u8'"  type="application/x-mpegURL" >
+          Browser not supported
+        </video>
+      <!-- <img alt="My imagename" class="mt-5"  src="./assets/images/logo/image1.png" style="border-radius:15px; width:220px; height:88px;"> -->
+      <div class="text-[12px] pl-1 text-white w-full playdiv  bg-[#26272F] my-1 p-2">{{device.camera_type}} / {{device.port}}
+        <button style="float: right;margin-top: -4px;"
+        class="btn btn-warning"
+        (click)="playVideo(device.camera_type)"> 
+        <button class="w-7 h-7  rounded-full  focus:outline-none" title="Click Here"><div class="w-full">
+         <img src="assets/images/logo/button.png">
+     </div>
+    </button> </button>
+    </div>
+    </div>
+    </div> 
+  </div>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 justify-center">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+     </svg>  -->
+ </div>

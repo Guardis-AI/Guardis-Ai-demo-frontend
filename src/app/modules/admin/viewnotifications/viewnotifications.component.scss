@@ -1,0 +1,145 @@
+
+    video {
+        object-fit: fill;
+    }
+    .highlight{
+        background-color: #d3d3d3;
+    }
+    table.custActivetb{
+        text-align: left;
+    }
+    table, th, td {
+        border-bottom: 1px solid #ddd;
+      }
+    
+    .gap-4{
+        gap: 1rem;
+    }
+    .mat-tooltip  {
+        white-space: pre-line !important;
+      }
+      * {
+       box-sizing: border-box;
+        font-size: 12px;
+      }
+      .sidebar-opener {
+        cursor: pointer;
+      }
+      .sidebar-slider{
+        // test code 
+        position:fixed;
+        top:0;
+        right:0;
+        bottom:0;
+        background-color:#26272f;
+        transform: translateX(100%);
+        transition: ease-in-out 300ms transform;
+        width:300px;
+        height:full;
+        border-radius:10px;
+        border:solid 1px #cbd5e1;
+        z-index:50;
+      }
+      .sidebar-slider.sidebar-slide-in 
+      {
+        transform: translateX(0%);
+        transition: ease-in-out 600ms transform;
+      }
+      .sidebar-close
+      {
+        position: fixed;
+        top:0.5;
+        right:0;
+        color:#cbd5e1;
+        cursor: pointer;
+        padding:5px;
+        z-index:-10px;
+        
+      }
+      .sidebar-content 
+      {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        color:black;
+        font-size: 16px;
+        padding: 16px;
+        height: 80%;
+      }
+      p{
+        font-family: Lato;
+       }
+      .dialog-title
+       {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       }
+      .md-drppicker
+      {
+        top:50px !important;
+        left:-200px !important;
+        width:600px !important;
+        height:320px;
+      }
+      .md-drppicker .ranges ul li button 
+      {
+        width:20px;
+        height:30px;
+        background: none;
+        border: none;
+        text-align:top;
+        cursor: pointer;
+      }
+      .md-drppicker .btn 
+      {
+        position:absolute;
+        overflow: hidden;
+        border-width: 0;
+        outline: none;
+        padding: 0 2px;
+        cursor: pointer;
+        border-radius: 2px;
+        box-shadow: 0 1px 4px #0009;
+        background-color:#3f51b5;
+        color: #ecf0f1;
+        transition: background-color .4s;
+        height: auto;
+        text-transform: uppercase;
+        line-height: 36px;
+        border: none;
+        width:100px;
+        border:solid 1px #cbd5e1;
+       }
+       .md-drppicker .ranges ul li button {
+        padding: 0px;
+        width:40%;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+    }
+    .md-drppicker{
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      box-sizing: border-box;
+      font-size: 12px;
+    }
+    .mat-accordion .mat-expansion-panel .mat-expansion-panel-header {
+        padding-right:80px;
+     }
+     
+      .a::-webkit-calendar-picker-indicator {
+             width: 30px;
+             height: 17px;
+         }
+         input {
+             color-scheme: dark;
+             padding-right: 50px
+         }
+         
+         .mat-icon-button {
+            padding-top:10px !important;
+         }
+    
+    

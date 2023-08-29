@@ -1,0 +1,153 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+@import "~ngx-smart-modal/ngx-smart-modal.css";
+:root {
+  --fuse-vertical-navigation-compact-width: 75px !important;
+}
+fuse-vertical-navigation{
+  height: auto !important;
+  min-height: 0px !important;
+   margin-top:10px;
+   margin-bottom:50px;
+}
+fuse-vertical-navigation.fuse-vertical-navigation-appearance-compact.fuse-vertical-navigation-position-left.fuse-vertical-navigation-opened{
+  margin-left:30px !important;
+  // margin-top:30px !important;
+}
+body{
+  width:auto !important;
+  max-height:100vh;
+}
+body, .dark, .light{
+  background-color: #fff !important;
+}
+fuse-vertical-navigation.fuse-vertical-navigation-appearance-compact .fuse-vertical-navigation-wrapper{
+  box-shadow:none !important;
+  border-radius:2rem !important;
+  margin-bottom:50px;
+}
+.container {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+  }
+  
+  .search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  
+  .form-control {
+   // box-shadow: 0 10px 40px 0 #B0C1D9;
+    text-align: left;
+    
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+    color:#356fb3;
+    font-weight:100;
+  }
+  .highlight{
+    background-color: #d3d3d3;
+}
+  input::placeholder {
+   @apply text-[#031529];
+  }
+  .form-control1::placeholder  {
+    font-family: FontAwesome;
+    color:white;
+  }
+
+  .card-info{
+    background-image:linear-gradient(#1978ac, #051422);
+  }
+
+  .card-info-2{
+    background-image:linear-gradient(#106a9b, #03090f);
+  }
+
+  .option-info::placeholder{
+    color: white;
+  }
+  .id{
+    width:300px;
+    height:270px;
+  }
+  .choose_file{
+    position:relative;
+    display:inline-block;    
+	border-radius:8px;
+    border:#ebebeb solid 1px;
+    width:250px; 
+    padding: 4px 6px 4px 8px;
+    font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+    color: #7f7f7f;
+    margin-top: 2px;
+	background:white
+}
+.choose_file input[type="file"]{
+    -webkit-appearance:none; 
+    position:absolute;
+    top:0; left:0;
+    opacity:0; 
+}
+.text-3xl {
+  color: #06294b;
+}
+tr.mat-row {
+  height: 36px!important;
+}
+.mat-paginator-outer-container {
+  float: right;
+}
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 24px;
+}
+.mat-cell {
+  font-size: 13px;
+}
+.mat-dialog-container{
+  padding:0px !important
+}
+.mat-input-element {
+  padding: 8px 0!important;
+}
+
+body.light .mat-flat-button.mat-primary {
+  background-color:  #06294b;
+}
+.mat-form-field.mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex{
+  min-height: 30px !important;
+}
+.mat-spinner circle{
+  stroke: #06294b !important;
+  }
+
+.bx-shadow{
+  box-shadow:1px 0px 6px 0px #06294b;
+}
+.video-js{
+  background-color: none !important;
+}
+
+.video-js .vjs-control-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+ // display: flex;
+}
+
+body.light .mat-flat-button.mat-accent{
+  background-color: #26272F !important; 
+}
+
+.video-js .vjs-play-control .vjs-icon-placeholder:before{ 
+   content:url('../assets/images/logo/PlayBack.png')!important;
+   top:-10px;
+   left:5px;
+   display: block !important;
+
+}

@@ -1,0 +1,98 @@
+<!--Add new user-->
+<div class="border-t border-r border-l  border-b border-01 bg-gray-50">
+    <form [formGroup]="addUserForm" #addUserNgForm="ngForm">
+        <div class="relative w-full h-15 bg-accent-100 dark:bg-accent-700 flex" style="padding-top:0px;">
+            <div class="mt-5 ml-5 text-2xl font-extrabold tracking-tight leading-tight ">{{title}}</div>
+                 <div class="pt-2.5 pl-80">
+                <a mat-icon-button [matTooltip]="'Close'" class="justify-end" (click)="dialogRef.close(false)">
+                    <mat-icon class="text-black m-2" [svgIcon]="'heroicons_outline:x'"></mat-icon>
+                </a>
+                </div>
+        </div>
+       <div style="padding-left:50px;padding-right:50px;">
+            <div class="text-2xl font-bold ">{{message}}</div>
+            <mat-form-field class="w-full mt-2">
+                <mat-label>User Name</mat-label>
+                <input id="username" matInput type="text" [formControlName]="'username'">
+                <mat-error> UserName is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-full mt-2">
+                <mat-label>User Role</mat-label>
+                <mat-select [formControlName]="'urole'">
+                    <mat-option *ngFor="let rl of role" [value]="rl"  >
+                      {{rl}}
+                    </mat-option>
+                  </mat-select>
+                <mat-error>Role is required</mat-error>
+            </mat-form-field>
+            <!-- Password field -->
+            <mat-form-field class="w-full mt-0">
+                <mat-label>Password</mat-label>
+                <input id="password" matInput type="password" [formControlName]="'password'" #passwordField>
+                <button mat-icon-button type="button"
+                    (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'"
+                    matSuffix>
+                    <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'password'"
+                        [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                    <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'text'"
+                        [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                </button>
+                <mat-error>
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Password confirm field -->
+            <mat-form-field class="w-full">
+                <mat-label>Password (Confirm)</mat-label>
+                <input id="password-confirm" matInput type="password" [formControlName]="'passwordConfirm'"
+                    #passwordConfirmField>
+                <button mat-icon-button type="button"
+                    (click)="passwordConfirmField.type === 'password' ? passwordConfirmField.type = 'text' : passwordConfirmField.type = 'password'"
+                    matSuffix>
+                    <mat-icon class="icon-size-5" *ngIf="passwordConfirmField.type === 'password'"
+                        [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                    <mat-icon class="icon-size-5" *ngIf="passwordConfirmField.type === 'text'"
+                        [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                </button>
+                <mat-error *ngIf="addUserForm.get('passwordConfirm').hasError('required')">
+                    Password confirmation is required
+                </mat-error>
+                <mat-error *ngIf="addUserForm.get('passwordConfirm').hasError('mustMatch')">
+                    Passwords must match
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label>CF-Url</mat-label>
+                <input id="cfurl" matInput type="text" [formControlName]="'cfurl'">
+                <mat-error> Cfurl is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label>Unit Name</mat-label>
+                <input id="uname" matInput type="text" [formControlName]="'p_edgeunit'">
+                <mat-error> Unit is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-1/2">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="startDatepicker" [formControlName]="'start_date'"
+                    [placeholder]="'Start Date'" >
+                <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatepicker></mat-datepicker>
+                <mat-error> StartDate is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-1/2  pl-2">
+                <mat-label>End Date</mat-label>
+                <input matInput [formControlName]="'end_date'" [matDatepicker]="endDatepicker"
+                    [placeholder]="'End Date'">
+                <mat-datepicker-toggle matSuffix [for]="endDatepicker"> </mat-datepicker-toggle>
+                <mat-datepicker #endDatepicker></mat-datepicker>
+            </mat-form-field>
+
+            <div class="flex items-center -mx-6 sm:-mx-12 py-4 pr-4 pl-1 sm:pr-12 sm:pl-7 border-t bg-gray-50 dark:bg-transparent">
+                <button class="ml-2"  mat-flat-button [color]="'primary'"
+                [disabled]="addUserForm.invalid" [matTooltip]="'Save'" (click)="SaveUser()"> Save
+            </button>
+        </div>
+        </div>
+</form>
+</div>

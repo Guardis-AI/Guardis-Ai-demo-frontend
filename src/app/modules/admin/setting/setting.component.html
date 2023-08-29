@@ -1,0 +1,161 @@
+<div class="flex border-r h-[84.3vh] border-width: 1px; border-[#0B3960]">
+<div>
+    <div class="pt-1.5">
+    <div class="pl-11 pr-7">
+    <div class="m-3 flex h-30 w-30 items-center justify-center rounded-full bg-[#0B3960] text-white">
+    <p>User Name</p>
+    </div>
+   </div>
+   <div class="pl-3">
+    <div>
+      <a  routerLink="['/setting']" class="inline-flex p-3 pl-1">
+        <img  style='padding-top:0px;' src="assets/images/logo/User.png" class="w-9 pl-2"> 
+              <h1 class="font-bold pl-10 pt-1 text-[#0B3960]">Profile</h1>
+        </a>
+    </div>
+   </div>
+    <div class="border-b  border-width: 1px; border-[#0B3960]"></div>
+</div>
+<div>
+  <a href="/setting" class="inline-flex p-3 pl-5">
+    <img  style='padding-top:0px;' src="assets/images/logo/DeviceList1.png" class="w-8 pl-2">
+      <h1 class="font-bold pl-10 pt-1 text-[#0B3960]">Device List</h1> 
+        </a>
+</div>
+<div class="border-b  border-width: 1px; border-[#0B3960]"></div>
+<div>
+  <a href="/setting" class="inline-flex p-3 pl-5">
+    <img  style='padding-top:0px;' src="assets/images/logo/AddDeviceList1.png" class="w-8 pl-2">
+      <h1 class="font-bold pl-10 pt-1 text-[#0B3960]">Add Device</h1> 
+      </a>    
+</div>
+<div class="border-b  border-width: 1px; border-[#0B3960]"></div>
+<div>
+    <a href="/playback" class="inline-flex p-3 pl-5">
+      <img  style='padding-top:0px;' src="assets/images/logo/PlayPack1.png" class="w-8 pl-2">
+    <h1 class="font-bold pl-10 text-[#0B3960]">Play Back</h1>
+    </a>
+</div>
+<div class="border-b  border-width: 1px; border-[#0B3960]"></div>
+<a href="/setting" class="inline-flex p-3 pl-5">
+  <img  style='padding-top:0px;' src="assets/images/logo/Setting1.png" class="w-8 pl-2">
+      <h1 class="font-bold pl-10 pt-1 text-[#0B3960]">Settings</h1> 
+</a> 
+<div class="border-b  border-width: 1px; border-[#0B3960]"></div>
+<div>
+  <!-- <button
+         p-3 pl-5>
+        <img  style='padding-top:0px;' src="assets/images/logo/Logout1.png" class="w-8 pl-2">
+        <h1 class="font-bold pl-10 pt-1 text-[#0B3960]">Logout</h1>
+</button> -->
+<a href="/sign-out" class="inline-flex p-3 pl-5">
+      <img  style='padding-top:0px;' src="assets/images/logo/Logout1.png" class="w-8 pl-2">
+      <h1 class="font-bold pl-10 pt-1 text-[#0B3960]">Logout</h1>
+</a>
+</div>
+<div class="border-b  border-width: 1px; border-[#0B3960]"></div>
+</div>
+</div>
+<div class="flex pl-5 pt-10 pb-10 h-[83vh] ">
+<div class=" card-info  w-[580px] h-[465px] text-white rounded-lg shadow-[5px_5px_4px_#1976a7] ml-4">
+    <h1 class="pl-10 pt-6">Profile</h1>
+    <div class="flex mt-4 space-x-3 md:mt-6 pl-10 w-[100px]">
+      <div>
+    <div class="flex flex-col items-center pt-10 bg-white  pl-2 pb-0 w-[280px] h-[290px] pr-2 mb-1 squared-full shadow-lg">
+        <!-- <img class="w-50 h-50 pr-10 mb-3 squared-full shadow-lg" src="" alt="Bonnie image"/> -->
+      <div class="pl-5 pt-5 pr-5 pb-5">
+        <img [src]="url" height="100" /> <br />
+     </div>
+    </div>
+    <div class="flex mt-2 space-x-2 md:mt-3  w-[300px] h-[50px] pl-20">
+      <button type="button"><a  class="inline-flex items-center px-4 py-2 text-[11px] h-[25px] w-[100px] font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"><svg fill="none" height="24" viewBox="0 0 24 24" width="100" xmlns="http://www.w3.org/2000/svg"><g stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="m9 22h6c5 0 7-2 7-7v-6c0-5-2-7-7-7h-6c-5 0-7 2-7 7v6c0 5 2 7 7 7z"/><path d="m9 10c1.1046 0 2-.89543 2-2s-.8954-2-2-2c-1.10457 0-2 .89543-2 2s.89543 2 2 2z"/><path d="m2.67004 18.9501 4.93-3.31c.79-.53 1.93-.47 2.63996.14l.33.29c.78.67 2.04.67 2.82 0l4.16-3.57c.78-.67 2.04-.67 2.82 0l1.63 1.4"/></g></svg><div class="choose_file">
+        <p class="text-[11px] font-size-[7px] text-[#0B3960]">Gallery</p>
+        <input type="file" (change)="onSelectFile($event)"/>
+      </div></a></button>
+  </div>
+</div>
+    <div class="pr-10  pl-12 pt-2">
+        <div>
+          <div class="card">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+          <form><div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control1 shadow-none" id="name" name="name" placeholder="Admin">
+          </div>
+          <div class="form-group pt-4">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control1 shadow-none" id="email" name="email" placeholder="mail@gmail.com">
+          </div>
+          <div class="form-group pt-4">
+          <label for="phone">Phone:</label>
+          <input type="tel" class="form-control1 shadow-none" id="phone" name="phone" placeholder="+91-1234567890">
+          </div>
+          <div class="form-group pt-4"><label for="address">Address:</label><input type="text" class="form-control1 shadow-none" id="address" name="address" placeholder="Full Address">
+          </div>
+          <button type="submit" class="btn btn-primary"><div class="pt-3">
+            <a href="/setting" class="inline-flex items-center px-4 py-2 h-[23px] text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><svg height="15" width="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h24v24h-24z" fill="#fff" opacity="0"/><g fill="#231f20"><path d="m19 20h-14a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2z"/><path d="m5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0 -.07-2.71l-2.74-2.74a2 2 0 0 0 -2.66-.07l-9 9a2 2 0 0 0 -.57 1.21l-.43 4.17a1 1 0 0 0 .29.8 1 1 0 0 0 .71.29zm10.27-14 2.73 2.73-2 1.95-2.68-2.68zm-8.9 8.91 5.63-5.59 2.7 2.7-5.6 5.6-3 .28z"/></g></svg>Edit Profile</a>
+        </div></button></form></div></div>
+    </div>
+   </div>
+
+</div>
+</div>
+    <div class="block pl-9   ">
+        <div class=" bg-gradient-to-t from-[#051422] to-[#3583ad] w-[400px] h-[220px]  text-white rounded-lg shadow-[5px_5px_4px_#1976a7]">
+            <h1 class="pl-5 pt-3 ">Add Device</h1>
+            <div>
+              <div class="card">
+              <div class="card-header">
+              </div>
+              <div class="card-body">
+              <form>
+                <div class="grid form-group pl-[52px] pt-6">
+              <label for="name">Device Name:</label>
+              <input type="text" class="form-control1 shadow-none  border-b border-white w-[300px]" id="name" name="name" placeholder="Store">
+              </div>
+              <div class=" grid form-group pl-[52px] pt-4">
+              <label for="email">RTSP Link:</label>
+              <input type="email" class="form-control1 shadow-none border-b border-white w-[300px]" id="email" name="email" placeholder="rtsp://admin:123456@68.184.223.152:6554/Streaming/channels/10">
+              </div>
+              
+              <button type="submit" class="btn btn-primary ml-13"><div class="pt-3">
+                <a href="/setting" class="inline-flex items-center px-4 py-2 text-[9px] w-[89px]  h-[23px] font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><svg height="10" width="10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h24v24h-24z" fill="#fff" opacity="0"/><g fill="#231f20"><path d="m19 20h-14a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2z"/><path d="m5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0 -.07-2.71l-2.74-2.74a2 2 0 0 0 -2.66-.07l-9 9a2 2 0 0 0 -.57 1.21l-.43 4.17a1 1 0 0 0 .29.8 1 1 0 0 0 .71.29zm10.27-14 2.73 2.73-2 1.95-2.68-2.68zm-8.9 8.91 5.63-5.59 2.7 2.7-5.6 5.6-3 .28z"/></g></svg>Edit Profile</a>
+            </div></button>
+</form></div></div> 
+
+</div>
+</div>
+<div class="flex pl-1 pt-6 pr-10">
+    <div class="card-info-2 text-white rounded-lg w-[400px] h-[220px] shadow-[5px_5px_4px_#1976a7]">
+        <h1 class="pl-5 pt-3 ">Device List</h1>
+        <div class="flex pl-8">
+        <div class="pr-10 pl-5">
+            <form class="w-[300px] max-w-sm">
+                <div class="flex items-center border-b border-white py-2">
+                  <input class=" option-info appearance-none bg-transparent border-none w-full text-white  mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Store" aria-label="Full name">
+                  <button class="flex-shrink-0 bg-[#44d43b] w-5 h-5 text-[#44d43b]   text-[#44d43b]  py-1 px-2 rounded-full" type="button">
+                  </button>
+                </div>
+              </form>
+<p id="floating_helper_text" class="mt-2 text-white text-white dark:text-white"><a href="#" class="text-white dark:text-white hover:underline"></a></p>
+
+            <div class="pt-1">
+                <form class="w-[300px] max-w-sm ">
+                    <div class="flex items-center border-b border-white py-2">
+                      <input class=" option-info  appearance-none bg-transparent border-none w-full text-white  mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Cash Register" aria-label="Full name">
+                      <button class="flex-shrink-0 bg-[#44d43b] w-5 h-5 text-[#44d43b]   text-[#44d43b]  py-1 px-2 rounded-full" type="button">
+                      </button>
+                    </div>
+                  </form>
+    <p id="floating_helper_text" class="mt-2 text-white text-white dark:text-white"><a href="#" class="text-white dark:text-white hover:underline"></a></p>
+            </div>
+            <div class="pt-1">
+            </div>
+        </div>
+       </div>
+    </div>
+    </div>
+</div>
+
