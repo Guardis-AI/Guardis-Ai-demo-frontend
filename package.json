@@ -28,6 +28,7 @@
     "@candidosales/material-time-picker": "^2.8.0",
     "@ngneat/transloco": "4.0.0",
     "@progress/kendo-angular-dateinputs": "^13.2.0",
+    "angular-cli-ghpages": "^1.0.7",
     "apexcharts": "3.35.3",
     "crypto-js": "3.3.0",
     "highlight.js": "11.5.1",
