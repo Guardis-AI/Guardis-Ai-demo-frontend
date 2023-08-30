@@ -1,13 +1,13 @@
 <!-- Notifications toggle -->
 <button mat-icon-button (click)="openPanel()" #notificationsOrigin>
-  <ng-container *ngIf="unreadCount > 0">
+  <ng-container>
     <span
       class="absolute top-0 right-0 left-0 flex items-center justify-center h-3"
     >
       <span
         class="flex items-center justify-center shrink-0 min-w-4 h-4 px-1 ml-4 mt-2.5 rounded-full bg-teal-600 text-indigo-50 text-xs font-medium"
       >
-        {{ unreadCount }}
+        1
       </span>
     </span>
   </ng-container>
@@ -138,10 +138,10 @@
 
       <!-- No notifications -->
       <ng-container *ngIf="!notifications || !notifications.length">
-        <div
-          class="flex flex-col flex-auto items-center justify-center sm:justify-start py-12 px-8"
-        >
-          <!-- <div
+        <!-- <div
+          class="flex flex-col flex-auto items-center justify-center sm:justify-start"
+        > -->
+        <!-- <div
             class="flex flex-0 items-center justify-center w-14 h-14 rounded-full bg-primary-100"
           >
             <mat-icon
@@ -156,24 +156,60 @@
             When you have notifications, they will appear here.
           </div> -->
 
-          <!-- <ng-template #notificationContent> -->
-          <div class="flex flex-col flex-auto h-10">
+        <!-- <ng-template #notificationContent> -->
+        <!-- <div class="flex flex-col flex-auto h-10">
             <ng-container>
               <div class="line-clamp-1">
                 <span class="font-small text-md">Notification - 22</span>
                 <span class="text-sm text-secondary" style="float: right"
                   >Port:544</span
                 >
-              </div>
-              <!-- [innerHTML]="'Notification'">   -->
-              <!-- </div> -->
-            </ng-container>
+              </div> -->
+        <!-- [innerHTML]="'Notification'">   -->
+        <!-- </div> -->
+        <!-- </ng-container>
             <div class="mt-2 text-sm leading-none text-secondary">
               Aug 28, 9:22 PM
               <span class="text-sm" style="float: right">Camera 5</span>
             </div>
+          </div> -->
+        <!-- </ng-template> -->
+
+        <div
+          class="flex group hover:bg-gray-50 dark:hover:bg-black dark:hover:bg-opacity-5 unread ng-star-inserted"
+        >
+          <a
+            class="flex flex-auto py-2 pl-6 cursor-pointer ng-star-inserted"
+            href="/viewnotifications"
+            ><div class="flex flex-col flex-auto h-10 ng-star-inserted">
+              <div class="line-clamp-1">
+                <span class="font-small text-md">Notification - 23</span>
+                <span class="text-sm text-secondary" style="float: right"
+                  >Port:554</span
+                >
+              </div>
+              <div class="mt-2 text-sm leading-none text-secondary">
+                Aug 28, 9:22 PM
+                <span class="text-sm" style="float: right">Camera5</span>
+              </div>
+            </div>
+          </a>
+          <div class="relative flex flex-col my-1 mr-2 ml-2">
+            <button
+              mat-icon-button=""
+              class="mat-focus-indicator mat-tooltip-trigger w-4 h-4 min-h-5 mat-icon-button mat-button-base"
+              aria-describedby="cdk-describedby-message-yvx-1-8"
+              cdk-describedby-host="yvx-1"
+            >
+              <span class="mat-button-wrapper"
+                ><span class="w-2 h-2 rounded-full bg-[#0B3960]"></span></span
+              ><span
+                matripple=""
+                class="mat-ripple mat-button-ripple mat-button-ripple-round"
+              ></span
+              ><span class="mat-button-focus-overlay"></span>
+            </button>
           </div>
-          <!-- </ng-template> -->
         </div>
       </ng-container>
     </div>

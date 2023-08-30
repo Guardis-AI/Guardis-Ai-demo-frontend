@@ -134,7 +134,7 @@ export class NotificationsComponent implements OnInit, OnDestroy {
     };
     this._streamService.markReviewed(data).subscribe((dt: any) => {
       if (dt.gai_upd_notification_read_flag.errorCode == 0) {
-        //marked as read
+        // marked as read
         this.onDisplay(dt.gai_upd_notification_read_flag.message);
         notification[index].hidden = false;
         console.log(this.notifications[index]);
