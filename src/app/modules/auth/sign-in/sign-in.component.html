@@ -1,78 +1,136 @@
-<div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0">
-    <div class="relative hidden md:flex flex-auto items-center justify-center w-full h-full p-16  overflow-hidden"
-        style="background-color: #e0e2da;">
-        <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
-            <div class="container">
-                <div class="background-card">
-                    <div>
-                    <div class="project-title">
-                        <img class="w-60 h-20" src="assets/images/login/logoG.png" alt="Projecttitle"  />
-                        <!-- <img src="assets/images/login/Logotext.png" alt="Projecttitle" class="project-title-img2" /> -->
-                    </div>
-                </div>
-                <div class="py-20">
-                    <div class="card bg-center"
-                        style="background-image: url('assets/images/login/Login.png');background-repeat: no-repeat;">
-                        <h2>LOGIN</h2>
-                        <div class="footer">
-                            <p class="copyright">
-                                Copyright @ 2023. All Rights Reserved by Fifthpeak
-                            </p>
-                            <p class="footer-text">POWERED BY KNS TECHNOLOGIES</p>
-                        </div>
-                    </div>
-                </div>
-                    <!-- Sign in form -->
-                   
-                    <form class="mt-8 pl-20" [formGroup]="signInForm" #signInNgForm="ngForm">
-                     <!-- Alert -->
-            <fuse-alert class="mt-8 -mb-4" *ngIf="showAlert" [appearance]="'outline'" [showIcon]="false"
-            [type]="alert.type" [@shake]="alert.type === 'error'">
-            {{alert.message}}
-        </fuse-alert>
-                        <!-- Username field -->
-                        <div>
-                        <label>Username</label>
-                       <div>
-                            <mat-form-field class="w-60 text-[#0B3960] font-weight-20">
-                                <img src="assets/images/logo/Username1.png" class="px-2 py-2" style="width:35px; ">
-                                
-                                    <input matInput placeholder="Username" id="p_username"
-                                        [formControlName]="'p_username'" maxlength="10">
-                        
-                                <mat-error *ngIf="signInForm.get('p_username').hasError('required')">
-                                    Username is required
-                                </mat-error>
-                                <mat-error *ngIf="signInForm.get('p_username').hasError('p_username')">
-                                    Please enter a valid username
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                        <label>Password</label>
-                        <div>
-                            <mat-form-field class="w-60 text-[#0B3960]">
-                                <img src="assets/images/logo/Passwords1.png" class="px-2 py-2" style="width:35px; ">
-                                <div class="pl-4">
-                                    <input placeholder="Password" id="password" matInput type="password"
-                                        [formControlName]="'p_password'" #passwordField>
-                                </div>
-                                <button mat-icon-button style="min-height: 30px !important;height:35px;" type="button"
-                                    (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'"
-                                    matSuffix>
-                                    <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'password'"
-                                        [svgIcon]="'heroicons_solid:eye'"></mat-icon>
-                                    <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'text'"
-                                        [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
-                                </button>
-                                <mat-error>
-                                    Password is required
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
+<div
+  class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0"
+>
+  <div
+    class="relative hidden md:flex flex-auto items-center justify-center w-full h-full p-16 overflow-hidden"
+    style="background-color: #e0e2da"
+  >
+    <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
+      <div class="container">
+        <div class="background-card">
+          <div>
+            <div class="project-title">
+              <img
+                class="w-60 h-20"
+                src="assets/images/login/logoG.png"
+                alt="Projecttitle"
+              />
+              <!-- <img src="assets/images/login/Logotext.png" alt="Projecttitle" class="project-title-img2" /> -->
+            </div>
+          </div>
+          <div class="py-20">
+            <div
+              class="card bg-center"
+              style="
+                background-image: url('assets/images/login/Login.png');
+                background-repeat: no-repeat;
+              "
+            >
+              <h2>LOGIN</h2>
+              <!-- <div class="footer">
+                <p class="copyright">
+                  Copyright @ 2023. All Rights Reserved by Fifthpeak
+                </p>
+                <p class="footer-text">POWERED BY KNS TECHNOLOGIES</p>
+              </div> -->
+            </div>
+          </div>
+          <!-- Sign in form -->
 
-                        <!-- Actions -->
-                        <!-- <div>
+          <form
+            class="mt-8 pl-20"
+            [formGroup]="signInForm"
+            #signInNgForm="ngForm"
+          >
+            <!-- Alert -->
+            <fuse-alert
+              class="mt-8 -mb-4"
+              *ngIf="showAlert"
+              [appearance]="'outline'"
+              [showIcon]="false"
+              [type]="alert.type"
+              [@shake]="alert.type === 'error'"
+            >
+              {{ alert.message }}
+            </fuse-alert>
+            <!-- Username field -->
+            <div>
+              <label>Username</label>
+              <div>
+                <mat-form-field class="w-60 text-[#0B3960] font-weight-20">
+                  <img
+                    src="assets/images/logo/Username1.png"
+                    class="px-2 py-2"
+                    style="width: 35px"
+                  />
+
+                  <input
+                    matInput
+                    placeholder="Username"
+                    id="p_username"
+                    [formControlName]="'p_username'"
+                    maxlength="10"
+                  />
+
+                  <mat-error
+                    *ngIf="signInForm.get('p_username').hasError('required')"
+                  >
+                    Username is required
+                  </mat-error>
+                  <mat-error
+                    *ngIf="signInForm.get('p_username').hasError('p_username')"
+                  >
+                    Please enter a valid username
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <label>Password</label>
+              <div>
+                <mat-form-field class="w-60 text-[#0B3960]">
+                  <img
+                    src="assets/images/logo/Passwords1.png"
+                    class="px-2 py-2"
+                    style="width: 35px"
+                  />
+                  <div class="pl-4">
+                    <input
+                      placeholder="Password"
+                      id="password"
+                      matInput
+                      type="password"
+                      [formControlName]="'p_password'"
+                      #passwordField
+                    />
+                  </div>
+                  <button
+                    mat-icon-button
+                    style="min-height: 30px !important; height: 35px"
+                    type="button"
+                    (click)="
+                      passwordField.type === 'password'
+                        ? (passwordField.type = 'text')
+                        : (passwordField.type = 'password')
+                    "
+                    matSuffix
+                  >
+                    <mat-icon
+                      class="icon-size-5"
+                      *ngIf="passwordField.type === 'password'"
+                      [svgIcon]="'heroicons_solid:eye'"
+                    ></mat-icon>
+                    <mat-icon
+                      class="icon-size-5"
+                      *ngIf="passwordField.type === 'text'"
+                      [svgIcon]="'heroicons_solid:eye-off'"
+                    ></mat-icon>
+                  </button>
+                  <mat-error> Password is required </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <!-- <div>
             <div class="inline-flex items-end justify-between w-full mt-1.5">
                 <p class="text-md font-medium text-primary-100">
                 <input type="checkbox" id="Readme" name="Readme" value="value">
@@ -86,26 +144,31 @@
             </div>
         </div> -->
 
-                        <!-- Submit button -->
-                        <div style=" padding-top:20px;">
-                            <button class="w-60 loginbtn" mat-flat-button [color]="'white'"
-                                [disabled]="signInForm.disabled" (click)="signIn()">
-                                <span class="w-60 text-white text-[14px] font-medium" *ngIf="!signInForm.disabled">
-                                    LOGIN
-                                </span>
-                                <mat-progress-spinner *ngIf="signInForm.disabled" [diameter]="24"
-                                    [mode]="'indeterminate'"></mat-progress-spinner>
-                            </button>
-                        </div>
-                        </form>
-                </div>
+            <!-- Submit button -->
+            <div style="padding-top: 20px">
+              <button
+                class="w-60 loginbtn"
+                mat-flat-button
+                [color]="'white'"
+                [disabled]="signInForm.disabled"
+                (click)="signIn()"
+              >
+                <span
+                  class="w-60 text-white text-[14px] font-medium"
+                  *ngIf="!signInForm.disabled"
+                >
+                  LOGIN
+                </span>
+                <mat-progress-spinner
+                  *ngIf="signInForm.disabled"
+                  [diameter]="24"
+                  [mode]="'indeterminate'"
+                ></mat-progress-spinner>
+              </button>
             </div>
-           
-
-            
-     
-
+          </form>
         </div>
-
+      </div>
     </div>
+  </div>
 </div>

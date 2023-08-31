@@ -3,24 +3,22 @@
 <fuse-loading-bar></fuse-loading-bar>
 <!-- Navigation -->
 <fuse-vertical-navigation
-    class="dark bg-[#26272F] print:hidden rounded-2xl shadow-[5px_0px_rgba(0,0,0)]"
-    [appearance]="'compact'"
-    [mode]="isScreenSmall ? 'over' : 'side'"
-    [name]="'mainNavigation'"
-    [navigation]="navigation.compact"
-    [opened]="!isScreenSmall">
-    <ng-container fuseVerticalNavigationContentHeader>
-        
-       <div class="w-24  p-1 mt-4">
-        <div>
-            <img
-                src="assets/images/login/logoG.png"
-                alt="Logo image">
-            </div>
-        </div>     
-    </ng-container>
-    <ng-container fuseVerticalNavigationFooter>
-      <!--   <div class="py-4 px-2 justify-center">
+  class="dark bg-[#26272F] print:hidden rounded-2xl shadow-[5px_0px_rgba(0,0,0)]"
+  [appearance]="'compact'"
+  [mode]="isScreenSmall ? 'over' : 'side'"
+  [name]="'mainNavigation'"
+  [navigation]="navigation.compact"
+  [opened]="!isScreenSmall"
+>
+  <ng-container fuseVerticalNavigationContentHeader>
+    <div class="w-24 p-1 mt-4">
+      <div>
+        <img src="assets/images/login/logoG.png" alt="Logo image" />
+      </div>
+    </div>
+  </ng-container>
+  <ng-container fuseVerticalNavigationFooter>
+    <!--   <div class="py-4 px-2 justify-center">
            <div class="flex items-center w-12 h-12 rounded-full bg-[#0f172a] justify-center">
             <a  class=" text-primary-300 hover:underline"  [routerLink]="['/sign-out']" title ="Logout">
              <svg class="h-5 w-5 text-white"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />  <polyline points="10 17 15 12 10 7" />  <line x1="15" y1="12" x2="3" y2="12" />
@@ -28,38 +26,42 @@
             </a>  
            </div>
         </div>-->
-    <div class="py-4 px-4 justify-center">    
-    <button [matMenuTriggerFor]="userActions"
-    mat-icon-button class="rounded-full bg-[#0f172a] justify-center">
-    <span class="relative">
-        <img  src="assets/images/login/logout.png" alt="Logo image">
-    </span>
-</button>
-</div>
-<mat-menu  [xPosition]="'after'" #userActions="matMenu">
-    <button   mat-menu-item  (click)="signOut()">
+    <div class="py-4 px-4 justify-center">
+      <button
+        [matMenuTriggerFor]="userActions"
+        mat-icon-button
+        class="rounded-full bg-[#0f172a] justify-center"
+      >
+        <span class="relative">
+          <img src="assets/images/login/logout.png" alt="Logo image" />
+        </span>
+      </button>
+    </div>
+    <mat-menu [xPosition]="'after'" #userActions="matMenu">
+      <button mat-menu-item (click)="signOut()">
         <mat-icon [svgIcon]="'heroicons_outline:logout'"></mat-icon>
-       <span>Sign out</span>
-    </button>
-</mat-menu>
-</ng-container> 
-
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
+  </ng-container>
 </fuse-vertical-navigation>
 <!-- Wrapper -->
 <div class="flex flex-col flex-auto w-full min-w-0">
-    <!-- Header -->
-    <div class="relative flex flex-0 items-center w-full h-14 px-4 md:px-6 z-49  dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
-        <!-- Navigation toggle button -->
-        <button
-            mat-icon-button
-            (click)="toggleNavigation('mainNavigation')">
-            <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
-        </button>
-        <div style="width:13%"><p>
-            Welcome Admin
-           <!-- <span class="text-md block">{{path | titlecase}}</span> -->
-        </p></div>
-   
+  <!-- Header -->
+  <div
+    class="relative flex flex-0 items-center w-full h-14 px-4 md:px-6 z-49 dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
+  >
+    <!-- Navigation toggle button -->
+    <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
+      <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+    </button>
+    <div style="width: 13%">
+      <p>
+        Welcome Admin
+        <!-- <span class="text-md block">{{path | titlecase}}</span> -->
+      </p>
+    </div>
+
     <!-- <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -69,28 +71,25 @@
         </div>
         <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900  rounded bg-gray-50 text-white  h-3.5" placeholder="Search Camera" required>
     </div> -->
-        <!-- Components -->
-        <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2"> 
-            <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
-            <search [appearance]="'bar'"></search>
-            <notifications></notifications>
-           <user></user>
-        </div>
+    <!-- Components -->
+    <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+      <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
+      <search [appearance]="'bar'"></search>
+      <notifications></notifications>
+      <user></user>
     </div>
+  </div>
 
-    <!-- Content -->
-    <div class="flex flex-col flex-auto">
-        <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+  <!-- Content -->
+  <div class="flex flex-col flex-auto">
+    <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
              Otherwise, layout changes won't be registered and the view won't be updated! -->
-        <router-outlet *ngIf="true"></router-outlet>
-    </div>
+    <router-outlet *ngIf="true"></router-outlet>
+  </div>
 
-    <!-- Footer -->
-    <div style="width:100%; display: flex; height:40px;padding-top:2px;">
+  <!-- Footer -->
+  <!-- <div style="width:100%; display: flex; height:40px;padding-top:2px;">
         <p class="text-sm text-secondary">COPYRIGHT &copy; {{currentYear}},ALL RIGHTS RESERVED BY FIFTHPEAK</p>
         <p class="text-sm text-secondary text-[10px]" style="padding-left:685px;">POWERED BY KNS TECHNOLOGIES.</p>
-    </div>
+    </div> -->
 </div>
-
-
-
