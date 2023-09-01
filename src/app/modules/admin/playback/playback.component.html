@@ -86,7 +86,7 @@
               autoplay
             >
               <source
-                src="assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4"
+                src="assets/demo-videos/camera5-clip.mp4"
                 type="video/mp4"
               />
               Browser not supported
@@ -157,7 +157,7 @@
             style="border-radius: 20px"
           >
             <source
-              src="assets/demo-videos/cashier22_20230608_16_22_54_616_theft.mp4"
+              src="assets/demo-videos/camera5-clip.mp4"
               type="video/mp4"
             />
             Browser not supported
@@ -191,7 +191,9 @@
             <button
               style="float: right; margin-top: -4px"
               class="btn btn-warning"
-              (click)="playVideo(1)"
+              (click)="
+                playHardcodedVideo('assets/demo-videos/camera5-clip.mp4')
+              "
             >
               <button
                 class="w-7 h-7 rounded-full focus:outline-none"
@@ -226,7 +228,11 @@
             <button
               style="float: right; margin-top: -4px"
               class="btn btn-warning"
-              (click)="playVideo(1)"
+              (click)="
+                playHardcodedVideo(
+                  'assets/demo-videos/cashier22_20230608_16_23_19_671_theft.mp4'
+                )
+              "
             >
               <button
                 class="w-7 h-7 rounded-full focus:outline-none"
@@ -261,7 +267,11 @@
             <button
               style="float: right; margin-top: -4px"
               class="btn btn-warning"
-              (click)="playVideo(1)"
+              (click)="
+                playHardcodedVideo(
+                  'assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4'
+                )
+              "
             >
               <button
                 class="w-7 h-7 rounded-full focus:outline-none"
@@ -296,7 +306,11 @@
             <button
               style="float: right; margin-top: -4px"
               class="btn btn-warning"
-              (click)="playVideo(1)"
+              (click)="
+                playHardcodedVideo(
+                  'assets/demo-videos/cashier22_20230608_16_24_11_246_theft.mp4'
+                )
+              "
             >
               <button
                 class="w-7 h-7 rounded-full focus:outline-none"

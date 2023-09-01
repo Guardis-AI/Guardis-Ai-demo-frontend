@@ -173,4 +173,9 @@ export class PlaybackComponent implements OnInit, AfterViewInit {
     this.cameraType = camType;
     this.getPlayback(this.dateplay, camType);
   }
+
+  playHardcodedVideo(src) {
+    const videoElement = this.el.nativeElement.querySelector("video");
+    videoElement.src = src;
+  }
 }
