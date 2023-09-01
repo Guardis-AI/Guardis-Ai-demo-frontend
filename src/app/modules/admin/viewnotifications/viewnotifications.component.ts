@@ -146,15 +146,10 @@ export class ViewnotificationsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // playHardcodedVideo() {
-  //   this.player = videojs(document.getElementById("sxmvideo"));
-  //   const hardcodedVideoUrl =
-  //     "src/assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4";
-  //   this.vdata = { videolink: hardcodedVideoUrl };
-  //   this.player.src({
-  //     src: hardcodedVideoUrl,
-  //   });
-  // }
+  playHardcodedVideo(src) {
+    const videoElement = this.el.nativeElement.querySelector("video");
+    videoElement.src = src;
+  }
 
   ngOnDestroy() {
     this._unsubscribeAll.next(null);

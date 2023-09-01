@@ -70,22 +70,27 @@
       class="relative flex-auto justify-center w-full 1/3 overflow-scroll dark:border-l mt-6"
     >
       <div *ngFor="let noti of notificationlist; let index = index">
-        <div class="flex w-full justify-center">
-          <!-- <video  id="video_{{noti.notification_log_id}}" class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full " style="border-radius:20px; "  autoplay>
-          <source  [src]="''+cfurl+'get_video?path='+noti.filepath+'&filename='+noti.filename+''" type="video/mp4" >
-          Browser not supported
-        </video> -->
-          <img
-            alt="My imagename"
-            src="./assets/images/logo/image1.png"
+        <div class="flex w-full justify-center mt-4">
+          <video
+            data-setup='{"liveui": true}'
+            id="playbkvideo_1"
+            class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full"
             style="border-radius: 15px; width: 200px; height: 72px"
-          />
+          >
+            <source
+              src="assets/demo-videos/camera5-clip.mp4"
+              type="video/mp4"
+            />
+            Browser not supported
+          </video>
           <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
-            {{ noti.camera_type }} / {{ noti.port }}
+            Camera 5 / Port 554
             <button
               style="float: right"
               class="btn btn-warning"
-              (click)="playClip(noti.notification_log_id)"
+              (click)="
+                playHardcodedVideo('assets/demo-videos/camera5-clip.mp4')
+              "
             >
               <button
                 class="w-7 h-7 rounded-full focus:outline-none"
@@ -98,20 +103,102 @@
             </button>
           </div>
         </div>
-      </div>
-      <div *ngFor="let noti of notificationlist; let index = index">
+
         <div class="flex w-full justify-center mt-4">
-          <img
-            alt="My imagename"
-            src="./assets/images/logo/image1.png"
+          <video
+            data-setup='{"liveui": true}'
+            id="playbkvideo_1"
+            class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full"
             style="border-radius: 15px; width: 200px; height: 72px"
-          />
+          >
+            <source
+              src="assets/demo-videos/cashier_20230529_10_15_34_468_theft.mp4"
+              type="video/mp4"
+            />
+            Browser not supported
+          </video>
           <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
-            {{ noti.camera_type }} / {{ noti.port }}
+            Camera 5 / Port 554
             <button
               style="float: right"
               class="btn btn-warning"
-              (click)="playClip(noti.notification_log_id)"
+              (click)="
+                playHardcodedVideo(
+                  'assets/demo-videos/cashier_20230529_10_15_34_468_theft.mp4'
+                )
+              "
+            >
+              <button
+                class="w-7 h-7 rounded-full focus:outline-none"
+                title="Click Here"
+              >
+                <div class="w-full">
+                  <img src="assets/images/logo/button.png" />
+                </div>
+              </button>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex w-full justify-center mt-4">
+          <video
+            data-setup='{"liveui": true}'
+            id="playbkvideo_1"
+            class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full"
+            style="border-radius: 15px; width: 200px; height: 72px"
+          >
+            <source
+              src="assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4"
+              type="video/mp4"
+            />
+            Browser not supported
+          </video>
+          <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
+            Camera 5 / Port 554
+            <button
+              style="float: right"
+              class="btn btn-warning"
+              (click)="
+                playHardcodedVideo(
+                  'assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4'
+                )
+              "
+            >
+              <button
+                class="w-7 h-7 rounded-full focus:outline-none"
+                title="Click Here"
+              >
+                <div class="w-full">
+                  <img src="assets/images/logo/button.png" />
+                </div>
+              </button>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex w-full justify-center mt-4">
+          <video
+            data-setup='{"liveui": true}'
+            id="playbkvideo_1"
+            class="video-js vjs-default-skin sm:w-full md:w-full lg:w-full"
+            style="border-radius: 15px; width: 200px; height: 72px"
+          >
+            <source
+              src="assets/demo-videos/corner_20230529_10_23_01_878_theft.mp4"
+              type="video/mp4"
+            />
+            Browser not supported
+          </video>
+          <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
+            Camera 5 / Port 554
+            <button
+              style="float: right"
+              class="btn btn-warning"
+              (click)="
+                playHardcodedVideo(
+                  'assets/demo-videos/corner_20230529_10_23_01_878_theft.mp4'
+                )
+              "
             >
               <button
                 class="w-7 h-7 rounded-full focus:outline-none"
