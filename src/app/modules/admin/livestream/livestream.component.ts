@@ -59,19 +59,19 @@ export class LivestreamComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    const data = {
-      p_user_id: localStorage.getItem("userId"),
-      p_device_token: "",
-      p_device_type: "",
-      p_port: "",
-      login_user_id: localStorage.getItem("userId"),
-    };
-    this._StreamService.getDeviceList(data).subscribe((dv: any) => {
-      this.devicelist = dv.gai_get_device_list;
-      const firstCam = this.devicelist[0].camera_type;
-      this.dateplay = this.datepipe.transform(this.selectedDate, "yyyyMMdd");
-      this.getPlayback(this.dateplay, firstCam);
-    });
+    // const data = {
+    //   p_user_id: localStorage.getItem("userId"),
+    //   p_device_token: "",
+    //   p_device_type: "",
+    //   p_port: "",
+    //   login_user_id: localStorage.getItem("userId"),
+    // };
+    // this._StreamService.getDeviceList(data).subscribe((dv: any) => {
+    //   this.devicelist = dv.gai_get_device_list;
+    //   const firstCam = this.devicelist[0].camera_type;
+    //   this.dateplay = this.datepipe.transform(this.selectedDate, "yyyyMMdd");
+    //   this.getPlayback(this.dateplay, firstCam);
+    // });
   }
 
   getPlayback(date, camtype) {
@@ -90,6 +90,7 @@ export class LivestreamComponent implements OnInit, AfterViewInit {
   sanitize(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
+
   checkHls(stream) {
     if (Hls.isSupported()) {
       var video = document.getElementById("sxmvideo");
@@ -126,14 +127,15 @@ export class LivestreamComponent implements OnInit, AfterViewInit {
       });
     }
   }
+
   ngAfterViewInit() {
-    this.player = videojs(document.getElementById("sxmvideo"));
-    this.devicelist.map(function (value, index) {
-      videojs(document.getElementById("playbkvideo_" + value.device_id));
-      document.getElementById("playbkvideo_" + value.device_id).style.height =
-        "130px";
-    });
-    this.player.muted(true);
+    // this.player = videojs(document.getElementById("sxmvideo"));
+    // this.devicelist.map(function (value, index) {
+    //   videojs(document.getElementById("playbkvideo_" + value.device_id));
+    //   document.getElementById("playbkvideo_" + value.device_id).style.height =
+    //     "130px";
+    // });
+    // this.player.muted(true);
   }
 
   playVideo(type) {

@@ -1,5 +1,5 @@
 import { Route } from "@angular/router";
-import { AuthGuard, AdminRoleGuard } from "app/core/auth/guards/auth.guard";
+// import { AuthGuard, AdminRoleGuard } from "app/core/auth/guards/auth.guard";
 import { NoAuthGuard } from "app/core/auth/guards/noAuth.guard";
 import { LayoutComponent } from "app/layout/layout.component";
 import { InitialDataResolver } from "app/app.resolvers";
@@ -20,63 +20,68 @@ export const appRoutes: Route[] = [
   // {path:'Notification', pathMatch: 'full', redirectTo: 'Homeicon'},
   // {path:'Settings',pathMatch: 'full', redirectTo: 'Seticon'},
 
-  // Auth routes for guests
+  // // Auth routes for guests
+  // {
+  //   path: "",
+  //   canActivate: [NoAuthGuard],
+  //   canActivateChild: [NoAuthGuard],
+  //   component: LayoutComponent,
+  //   data: {
+  //     layout: "empty",
+  //   },
+  //   children: [
+  //     {
+  //       path: "sign-in",
+  //       loadChildren: () =>
+  //         import("app/modules/auth/sign-in/sign-in.module").then(
+  //           (m) => m.AuthSignInModule
+  //         ),
+  //     },
+  //   ],
+  // },
+
+  // // Auth routes for authenticated users
+  // {
+  //   path: "",
+  //   canActivate: [AuthGuard],
+  //   canActivateChild: [AuthGuard],
+  //   component: LayoutComponent,
+  //   data: {
+  //     layout: "empty",
+  //   },
+  //   children: [
+  //     {
+  //       path: "sign-out",
+  //       loadChildren: () =>
+  //         import("app/modules/auth/sign-out/sign-out.module").then(
+  //           (m) => m.AuthSignOutModule
+  //         ),
+  //     },
+  //   ],
+  // },
+
+  // Landing routes
+  // {
+  //   path: "",
+  //   component: LayoutComponent,
+  //   data: {
+  //     layout: "empty",
+  //   },
+  //   children: [],
+  // },
+
   {
     path: "",
+    // canActivate: [AuthGuard],
+    // canActivateChild: [AuthGuard],
     canActivate: [NoAuthGuard],
     canActivateChild: [NoAuthGuard],
     component: LayoutComponent,
+    // resolve: {
+    //   initialData: InitialDataResolver,
+    // },
     data: {
       layout: "empty",
-    },
-    children: [
-      {
-        path: "sign-in",
-        loadChildren: () =>
-          import("app/modules/auth/sign-in/sign-in.module").then(
-            (m) => m.AuthSignInModule
-          ),
-      },
-    ],
-  },
-
-  // Auth routes for authenticated users
-  {
-    path: "",
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    component: LayoutComponent,
-    data: {
-      layout: "empty",
-    },
-    children: [
-      {
-        path: "sign-out",
-        loadChildren: () =>
-          import("app/modules/auth/sign-out/sign-out.module").then(
-            (m) => m.AuthSignOutModule
-          ),
-      },
-    ],
-  },
-
-  // Landing routes
-  {
-    path: "",
-    component: LayoutComponent,
-    data: {
-      layout: "empty",
-    },
-    children: [],
-  },
-
-  {
-    path: "",
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    component: LayoutComponent,
-    resolve: {
-      initialData: InitialDataResolver,
     },
     children: [
       {

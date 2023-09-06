@@ -67,41 +67,40 @@ export class ViewnotificationsComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private el: ElementRef<HTMLVideoElement>
   ) {
-    this.currentRoute = "";
-    this.activatedRoute.data.subscribe(({ notilist }) => {
-      console.log("From constructor");
-      // this.notificationlist =
-      //   notilist.gai_get_user_notification_log[0].notification_log;
-      console.log("notificationlist");
-      console.log(this.notificationlist);
-    });
-    const id = this.route.snapshot.paramMap.get("id");
-    console.log("id" + id);
-    this._router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationStart) {
-        // Show progress spinner or progress bar
-        console.log("Route change detected");
-        this.currentRoute = event.url;
-        const valId = event.url.split("/");
-        this.NotiLogId = valId[valId.length - 1];
-      }
-      if (event instanceof NavigationEnd) {
-        console.log("nav end");
-        this.currentRoute = event.url;
-        const valId = event.url.split("/");
-        this.NotiLogId = valId[valId.length - 1];
-        //this.ngOnInit();
-        this.ngAfterViewInit();
-      }
-      if (event instanceof NavigationError) {
-        // Hide progress spinner or progress bar
-        // Present error to user
-        console.log(event.error);
-      }
-
-      this.player = false;
-      this.video = el.nativeElement;
-    });
+    // this.currentRoute = "";
+    // this.activatedRoute.data.subscribe(({ notilist }) => {
+    //   console.log("From constructor");
+    //   // this.notificationlist =
+    //   //   notilist.gai_get_user_notification_log[0].notification_log;
+    //   console.log("notificationlist");
+    //   console.log(this.notificationlist);
+    // });
+    // const id = this.route.snapshot.paramMap.get("id");
+    // console.log("id" + id);
+    // this._router.events.subscribe((event: Event) => {
+    //   if (event instanceof NavigationStart) {
+    //     // Show progress spinner or progress bar
+    //     console.log("Route change detected");
+    //     this.currentRoute = event.url;
+    //     const valId = event.url.split("/");
+    //     this.NotiLogId = valId[valId.length - 1];
+    //   }
+    //   if (event instanceof NavigationEnd) {
+    //     console.log("nav end");
+    //     this.currentRoute = event.url;
+    //     const valId = event.url.split("/");
+    //     this.NotiLogId = valId[valId.length - 1];
+    //     //this.ngOnInit();
+    //     this.ngAfterViewInit();
+    //   }
+    //   if (event instanceof NavigationError) {
+    //     // Hide progress spinner or progress bar
+    //     // Present error to user
+    //     console.log(event.error);
+    //   }
+    //   this.player = false;
+    //   this.video = el.nativeElement;
+    // });
   }
 
   ngOnInit() {}
