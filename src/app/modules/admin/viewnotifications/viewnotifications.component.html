@@ -4,7 +4,7 @@
   <div
     class="flex flex-col bg-[#26272F] text-center rounded-xl h-160 m-4 p-2 mr-0"
   >
-    <div class="w-24 p-1 mt-4 ng-tns-c42-0">
+    <div class="w-30 p-1 mt-4 mb-10">
       <img src="assets/images/login/logoG.png" alt="Logo image" />
     </div>
 
@@ -13,12 +13,17 @@
       [routerLink]="['/user']"
     >
       <div class="flex justify-center">
-        <div class="w-6">
+        <div class="w-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            fill="none"
             viewBox="0 0 24 24"
+            stroke="currentColor"
+            fit=""
+            height="100%"
+            width="100%"
+            preserveAspectRatio="xMidYMid meet"
+            focusable="false"
           >
             <g
               fill="none"
@@ -35,12 +40,12 @@
           </svg>
         </div>
       </div>
-      Settings
+      <span class="text-lg">Settings</span>
     </a>
 
     <a class="text-white hover:underline pt-4 pb-4" [routerLink]="['/live']">
       <div class="flex justify-center">
-        <div class="w-6">
+        <div class="w-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -63,7 +68,7 @@
           </svg>
         </div>
       </div>
-      Live
+      <span class="text-lg">Live</span>
     </a>
 
     <a
@@ -71,7 +76,7 @@
       [routerLink]="['/playback']"
     >
       <div class="flex justify-center">
-        <div class="w-6">
+        <div class="w-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -98,7 +103,7 @@
           </svg>
         </div>
       </div>
-      Playback
+      <span class="text-lg">Playback</span>
     </a>
 
     <a
@@ -106,7 +111,7 @@
       [routerLink]="['/viewnotifications']"
     >
       <div class="flex justify-center">
-        <div class="w-6">
+        <div class="w-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -127,9 +132,10 @@
           </svg>
         </div>
       </div>
-      Notifications
+      <span class="text-lg">Notifications</span>
     </a>
   </div>
+
   <div
     class="md:flex md:justify-start w-2/3 md:h-100 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none sm:bg-card pl-10 pt-5 flex flex-col"
   >
@@ -158,7 +164,7 @@
               autoplay
             >
               <source
-                src="assets/demo-videos/camera5-clip.mp4"
+                src="assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4"
                 type="video/mp4"
               />
             </video>
@@ -207,18 +213,20 @@
             style="border-radius: 15px; width: 200px; height: 72px"
           >
             <source
-              src="assets/demo-videos/camera5-clip.mp4"
+              src="assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4"
               type="video/mp4"
             />
             Browser not supported
           </video>
           <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
-            Camera 1 / Port 554
+            Camera 2 / Port 554
             <button
               style="float: right"
               class="btn btn-warning"
               (click)="
-                playHardcodedVideo('assets/demo-videos/camera5-clip.mp4')
+                playHardcodedVideo(
+                  'assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4'
+                )
               "
             >
               <button
@@ -277,19 +285,19 @@
             style="border-radius: 15px; width: 200px; height: 72px"
           >
             <source
-              src="assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4"
+              src="assets/demo-videos/corner_20230529_10_23_01_878_theft.mp4"
               type="video/mp4"
             />
             Browser not supported
           </video>
           <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
-            Camera 2 / Port 554
+            Camera 4 / Port 5554
             <button
               style="float: right"
               class="btn btn-warning"
               (click)="
                 playHardcodedVideo(
-                  'assets/demo-videos/cashier22_20230608_16_23_47_713_theft.mp4'
+                  'assets/demo-videos/corner_20230529_10_23_01_878_theft.mp4'
                 )
               "
             >
@@ -313,20 +321,18 @@
             style="border-radius: 15px; width: 200px; height: 72px"
           >
             <source
-              src="assets/demo-videos/corner_20230529_10_23_01_878_theft.mp4"
+              src="assets/demo-videos/camera5-clip.mp4"
               type="video/mp4"
             />
             Browser not supported
           </video>
           <div class="text-[12px] pl-1 text-white w-full playdiv my-1 p-2">
-            Camera 4 / Port 5554
+            Camera 1 / Port 554
             <button
               style="float: right"
               class="btn btn-warning"
               (click)="
-                playHardcodedVideo(
-                  'assets/demo-videos/corner_20230529_10_23_01_878_theft.mp4'
-                )
+                playHardcodedVideo('assets/demo-videos/camera5-clip.mp4')
               "
             >
               <button
